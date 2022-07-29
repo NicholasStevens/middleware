@@ -8,16 +8,6 @@ const loggingMiddleware = (req, res, next) => {
   res.setHeader("x-codaisseur-time", currentTime);
   next();
 };
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.json());
-
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.json({
-    message: "We received your request body!",
-  });
-});
 
 const failRandomlyMiddleware = (req, res, next) => {
   if (Math.random() * 2 >= 1) {
